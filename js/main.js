@@ -1245,7 +1245,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 s = "每个",
                 a = 0;
             return $.each(t.available, function (t, r) {
-                a = r.every, r.at && (s = "At", a = r.at), i.push(s + " " + a + ' 等级 "' + e.getTitle(r.name) + '"')
+                a = r.every, r.at && (s = "需要", a = r.at), i.push(s + " " + a + ' 级 "' + e.getTitle(r.name) + '"')
             }), i.join(", ")
         }, this.getByName = function (t) {
             switch (t) {
