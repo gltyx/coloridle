@@ -1236,7 +1236,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             var i = $('#talents button[data-name="' + t.name + '"]');
             i.html(t.title), e.canUpgrade(t) ? i.removeClass("disabled") : i.addClass("disabled"), t.getLevel() > 0 && i.html(i.html() + " (" + t.getLevel() + ")");
             var s = "<div><b>描述:</b> " + t.description + "</div>";
-            t.hasOwnProperty("currentLevelDescription") && (s += "<div><b>当前等级:</b> " + t.currentLevelDescription() + "</div>"), t.hasOwnProperty("nextLevelDescription") && (s += "<div><b>下一级:</b> " + t.nextLevelDescription() + "</div>"), t.hasOwnProperty("available") && (s += "<div><b>可得到:</b> " + e.getTextAvailable(t)), t.hasOwnProperty("maxLevel") && (s += "<div><b>最高等级:</b> " + t.maxLevel), s += "<div><b>花费:</b> " + t.cost() + " 金漆</div>", i.tooltip("dispose"), i.attr("data-original-title", s), i.tooltip({
+            t.hasOwnProperty("currentLevelDescription") && (s += "<div><b>当前等级:</b> " + t.currentLevelDescription() + "</div>"), t.hasOwnProperty("nextLevelDescription") && (s += "<div><b>下一级:</b> " + t.nextLevelDescription() + "</div>"), t.hasOwnProperty("available") && (s += "<div><b>前置条件:</b> " + e.getTextAvailable(t)), t.hasOwnProperty("maxLevel") && (s += "<div><b>最高等级:</b> " + t.maxLevel), s += "<div><b>花费:</b> " + t.cost() + " 金漆</div>", i.tooltip("dispose"), i.attr("data-original-title", s), i.tooltip({
                 trigger: "hover",
                 html: !0
             })
