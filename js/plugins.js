@@ -25,11 +25,11 @@
 
 function confirmModal(options) {
     options = $.extend({
-        title: 'Confirm',
-        content: 'Are you sure?',
-	    confirmButtonText: 'Confirm',
+        title: '提示',
+        content: '你确定吗?',
+	    confirmButtonText: '确定',
 	    cancelButton: true,
-	    cancelButtonText: 'Cancel',
+	    cancelButtonText: '取消',
         confirmButtonClick: function(e) {
             var modalDialog = e.data;
             modalDialog.modal('hide');

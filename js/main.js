@@ -322,7 +322,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             for (var a in s) {
                 if (i >= 24) break;
                 var r = s[a],
-                    n = $("<div/>").addClass("probability").text("T " + r.key + ": " + e.displayNumber(r.probability.times(100)) + "%").appendTo(t);
+                    n = $("<div/>").addClass("probability").text("层 " + r.key + ": " + e.displayNumber(r.probability.times(100)) + "%").appendTo(t);
                 this.setColorCss(n, r.key), i++
             }
         }, this.getProbCostExtra = function () {
