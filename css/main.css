@@ -1,0 +1,587 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+	color: #222;
+	font-size: 1em;
+	line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+::selection {
+	background: #b3d4fc;
+	text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+	margin: 1em 0;
+	padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+	vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+	resize: vertical;
+}
+
+/* ==========================================================================
+   Browser Upgrade Prompt
+   ========================================================================== */
+
+.browserupgrade {
+	margin: 0.2em 0;
+	background: #ccc;
+	color: #000;
+	padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+body.dark {
+	background-color: #333333;
+	color: #e0dada;
+}
+
+body.dark .form-control {
+	background-color: #797575;
+}
+
+body.dark .nav-tabs .nav-link.active {
+	background-color: #8a8a8a;
+}
+
+body.dark .progress {
+	background-color: #2f70b1;
+}
+
+.tab-content {
+	padding-top: 20px;
+}
+
+#timer-wrapper.crit {
+	color: red;
+}
+
+.grid {
+
+}
+
+.grid-cell {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	border: 1px solid #d5d5d5;
+	border-radius: 20%;
+	cursor: pointer;
+	font-size: 13px;
+}
+
+.grid-cell.active-cell:after {
+	position: absolute;
+	content: "\f023";
+	top: 0px;
+	left: 50%;
+	margin-left: -3px;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.grid-cell .text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+}
+
+.grid-cell .sell {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	font-size: 12px;
+}
+
+.grid-cell .amount {
+	position: absolute;
+	right: 15px;
+	bottom: 0;
+}
+
+#desk-grid .grid-cell.active .sell {
+	display: block;
+}
+
+#desk-grid-header {
+	margin: 0 0 10px 0;
+}
+
+#desk-grid-header > div {
+	display: inline-block;
+}
+
+#probabilities-header {
+	margin-bottom: 10px;
+}
+
+#probabilities-header > div {
+	display: inline-block;
+}
+
+#probabilities {
+	columns: 4;
+	font-size: 14px;
+}
+
+#probabilities .probability {
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#color-progress {
+	margin-bottom: 10px;
+}
+
+.progress-bar {
+	transition: unset;
+	height: 5px;
+	background-color: #d5d5d5;
+}
+
+#save-options > div {
+	margin-bottom: 10px;
+}
+
+#upgrades {
+	margin-bottom: 20px;
+}
+
+#upgrades .upgrade:nth-child(3) {
+	margin-right: 0;
+}
+
+#upgrades .upgrade button {
+	position: relative;
+	width: 100%;
+}
+
+#upgrades .upgrade button .fa {
+	font-size: 14px;
+}
+
+#upgrade-multi-buttons {
+	float: right;
+}
+
+.btn-group .btn:focus {
+	box-shadow: none;
+}
+
+#gallery .description {
+	margin-bottom: 20px;
+}
+
+#gallery .tab-content {
+	padding: 0;
+}
+
+#gallery .tab-pane {
+}
+
+#gallery .color {
+	display: inline-block;
+	width: 6.25%;
+	height: 25px;
+	float: left;
+	text-align: center;
+}
+
+#talents .info {
+	margin-bottom: 30px;
+}
+
+#talents .talents-buttons {
+	margin-bottom: 20px;
+}
+
+#talents .cancel-confirm-buttons {
+	display: none;
+	float: right;
+}
+
+#talents .talents > div .col-md-4 {
+	padding-right: 0;
+}
+
+#talents .talents > div .col-md-4:last-child {
+	padding-right: 15px;
+}
+
+#talents .talents button {
+	width: 100%;
+	height: 38px;
+	font-size: 11px;
+}
+
+#talents .line-wrapper.vertical {
+	position: relative;
+	width: 100%;
+	height: 47px;
+	margin-bottom: 3px;
+}
+
+#talents .line {
+	position: absolute;
+	background-color: #000000;
+}
+
+#talents .line-wrapper.vertical .line {
+	left: 50%;
+	width: 5px;
+	height: 100%;
+	margin-left: -2.5px;
+}
+
+#talents .line.with-arrow:after {
+	position: absolute;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 18px;
+}
+
+#talents .line-wrapper.vertical .line.with-arrow:after {
+	position: absolute;
+	bottom: -10px;
+	left: -3px;
+	content: "\f0d7";
+}
+
+#talents .line.custom-1 {
+	width: 15px;
+	height: 5px;
+	right: 0;
+	bottom: 18px;
+}
+
+#talents .line.custom-2 {
+	width: 5px;
+	height: 90px;
+	right: 0;
+	bottom: 18px;
+}
+
+#talents .line.custom-3 {
+	width: 13px;
+	height: 5px;
+	right: -12px;
+	bottom: 18px;
+}
+
+#talents .line.custom-3.with-arrow:after {
+	position: absolute;
+	bottom: -7px;
+	left: 11px;
+	content: "\f0da";
+}
+
+#talents .line.custom-4 {
+	width: 15px;
+	height: 5px;
+	left: 0px;
+	top: 19px;
+}
+
+#talents .line.custom-5 {
+	width: 5px;
+	height: 176px;
+	left: 0px;
+	top: 19px;
+}
+
+#talents .line.custom-6 {
+	width: 15px;
+	height: 5px;
+	left: -12px;
+	bottom: 19px;
+}
+
+#talents .line.custom-7 {
+	width: 15px;
+	height: 5px;
+	right: 12px;
+	bottom: 19px;
+}
+
+#talents .line.custom-6.with-arrow:after {
+	position: absolute;
+	bottom: -7px;
+	right: 13px;
+	content: "\f0d9";
+}
+
+#overlay-highlight {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 998;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.highlight-text {
+	display: none;
+	position: absolute;
+	padding: 10px;
+	background-color: #ffffff;
+	color: #000000;
+	z-index: 999;
+	border: 3px solid #d39e00;
+	border-radius: 10px;
+}
+
+.highlight-btn-wrapper {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden {
+	display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+
+.visuallyhidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+	clip: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+	visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+	/* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
+	/* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+	*,
+	*:before,
+	*:after,
+	*:first-letter,
+	*:first-line {
+		background: transparent !important;
+		color: #000 !important;
+		/* Black prints faster:
+										  http://www.sanbeiji.com/archives/953 */
+		box-shadow: none !important;
+		text-shadow: none !important;
+	}
+
+	a,
+	a:visited {
+		text-decoration: underline;
+	}
+
+	a[href]:after {
+		content: " (" attr(href) ")";
+	}
+
+	abbr[title]:after {
+		content: " (" attr(title) ")";
+	}
+
+	/*
+	 * Don't show links that are fragment identifiers,
+	 * or use the `javascript:` pseudo protocol
+	 */
+	a[href^="#"]:after,
+	a[href^="javascript:"]:after {
+		content: "";
+	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+	}
+
+	/*
+	 * Printing Tables:
+	 * http://css-discuss.incutio.com/wiki/Printing_Tables
+	 */
+	thead {
+		display: table-header-group;
+	}
+
+	tr,
+	img {
+		page-break-inside: avoid;
+	}
+
+	img {
+		max-width: 100% !important;
+	}
+
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+	}
+
+	h2,
+	h3 {
+		page-break-after: avoid;
+	}
+}
