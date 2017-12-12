@@ -152,7 +152,9 @@ body.dark .progress {
 	top: 50%;
 	left: 50%;
 	width: 100%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 }
 
 .grid-cell .sell {
@@ -191,7 +193,9 @@ body.dark .progress {
 }
 
 #probabilities {
-	columns: 4;
+	-webkit-columns: 4;
+	   -moz-columns: 4;
+	        columns: 4;
 	font-size: 14px;
 }
 
@@ -205,6 +209,7 @@ body.dark .progress {
 }
 
 .progress-bar {
+	-webkit-transition: unset;
 	transition: unset;
 	height: 5px;
 	background-color: #d5d5d5;
@@ -217,7 +222,7 @@ body.dark .progress {
 #upgrades {
 	margin-bottom: 20px;
 }
-
+#upgrades .upgrade{margin-bottom: 10px;}
 #upgrades .upgrade:nth-child(3) {
 	margin-right: 0;
 }
