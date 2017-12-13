@@ -1011,8 +1011,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             }
         }, {
             name: "palette_smart_dbl_click",
-            title: "智能dblclk",
-            description: '如果可能的话，双击“调色板”中的颜色，用最差的颜色替换它',
+            title: "智能双击",
+            description: '如果可能的话，双击“调色板”中的颜色块，会替换掉“画板”里面数字最小的颜色块',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
