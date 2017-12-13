@@ -155,11 +155,11 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                     },
                     2: {
                         target: $("#work-grid"),
-                        text: '这是你的“画图”。<br /> 计时器产生的新颜色将取决于“画图”中的颜色。 <br />颜色有一个十六进制代码和层次，更大层次，更好的色彩。'
+                        text: '这是你的“画板”。<br /> 计时器产生的新颜色将取决于“画板”中的颜色。 <br />颜色有一个十六进制代码和层次，更大层次，更好的色彩。'
                     },
                     3: {
                         target: $("#desk-grid"),
-                        text: '这是你的“调色板”。 <br /> 计时器产生的新颜色将出现在这里。 <br /> 如果它们的颜色层多于“画图”中的颜色层，则需要拖放（或者在“画图”中为空单元格的情况下将dblclk）拖放到“画图”上。 <br />你可以卖掉最差的颜色层。'
+                        text: '这是你的“调色板”。 <br /> 计时器产生的新颜色将出现在这里。 <br /> 如果它们的颜色层多于“画板”中的颜色层，则需要拖放（或者在“画板”中为空格子的情况下将dblclk）拖放到“画板”上。 <br />你可以卖掉最差的颜色层。'
                     },
                     4: {
                         target: $("#upgrades"),
@@ -859,8 +859,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         var e = this;
         this.talents = [{
             name: "paint_cells_count",
-            title: "画图单元格",
-            description: '增加“画图”中的单元格数量',
+            title: "画板单元格",
+            description: '增加“画板”中的单元格数量',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -883,8 +883,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             }
         }, {
             name: "paint_cells_stack",
-            title: "画图堆栈",
-            description: '同一层的“画图”中的颜色可以堆叠在一个单元格中',
+            title: "画板堆栈",
+            description: '同一层的“画板”中的颜色可以堆叠在一个单元格中',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -937,7 +937,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "paint_tier_same",
             title: "颜色层相同",
-            description: '在“画图”每个同一层给出更高的概率',
+            description: '在“画板”每个同一层给出更高的概率',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -965,7 +965,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "paint_auto_sort",
             title: "自动排序",
-            description: '“画图”中的单元格将被自动分类（替换，交换等），还添加了一个按钮，您可以打开或关闭自动排序',
+            description: '“画板”中的单元格将被自动分类（替换，交换等），还添加了一个按钮，您可以打开或关闭自动排序',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1242,7 +1242,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             })
         }, this.getTextAvailable = function (t) {
             var i = [],
-                s = "每个",
+                s = "需要",
                 a = 0;
             return $.each(t.available, function (t, r) {
                 a = r.every, r.at && (s = "需要", a = r.at), i.push(s + " " + a + ' 级 "' + e.getTitle(r.name) + '"')

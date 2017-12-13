@@ -57,10 +57,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" id="work-grid-wrapper">
-                        <p>画图:
-                            <button class="btn btn-info hidden" id="sort-work-grid">排序</button>
-                            <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="Auto sort off" data-enabled-text="Auto sort on" id="auto-sort-work-grid">
-                                自动排序
+                        <p>画板:
+                            <button class="btn btn-info hidden" id="sort-work-grid">分类</button>
+                            <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="自动分类关闭" data-enabled-text="自动分类开启" id="auto-sort-work-grid">
+                                自动分类
                             </button>
                         </p>
                         <div id="work-grid" class="grid">
@@ -96,9 +96,9 @@
                             <div>调色板:</div>
                             <div id="desk-options">
                                 <button class="btn btn-danger" id="sell-all">全部出售</button>
-                                <button class="btn btn-info hidden" id="sort-desk-grid">排序</button>
-                                <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="Auto sort off" data-enabled-text="Auto sort on" id="auto-sort-desk-grid">
-                                    自动排序
+                                <button class="btn btn-info hidden" id="sort-desk-grid">分类</button>
+                                <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="自动分类关闭" data-enabled-text="自动分类开启" id="auto-sort-desk-grid">
+                                    自动分类
                                 </button>
                             </div>
                         </div>
@@ -118,14 +118,14 @@
                            
                         </div>
                         <div id="probabilities-header">
-                            <div>几率</div>
+                            <div>几率显示顺序</div>
                             <div class="btn-group" id="probabilities-sort" data-sort="asc">
                                 <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    排序 <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                                    默认 <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
                                 </button>
                                 <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
-                                    <a data-sort="asc" class="dropdown-item" href="javascript:void(0)">顺序 <i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
-                                    <a data-sort="desc" class="dropdown-item" href="javascript:void(0)">倒序 <i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
+                                    <a data-sort="asc" class="dropdown-item" href="javascript:void(0)">从小到大 <i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+                                    <a data-sort="desc" class="dropdown-item" href="javascript:void(0)">从大到小 <i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
