@@ -106,8 +106,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             $('[data-stat="highestTier"]').text(e.displayNumber(i.highestTier)), $('[data-stat="highestTierThisReset"]').text(e.displayNumber(this.getHighestTierThisReset())), this.game.canReset() ? $("#reset").removeClass("disabled") : $("#reset").addClass("disabled")
         }, this.setTextResetCount = function () {
             $('[data-stat="resetCount"]').text(e.displayNumber(i.resetCount));
-            var t = "当您获得至少100个颜色层时，您可以重置";
-            i.resetCount.greaterThan(0) && (t = "当你得到至少1金漆，你可以重置"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
+            var t = "当您获得至少100个颜色层时，您才可以重置";
+            i.resetCount.greaterThan(0) && (t = "本次重置需要比你上一次重置时拥有的颜色多100种"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
                 trigger: "hover"
             })
         }, this.setTextAllGoldPaint = function () {
@@ -909,7 +909,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "paint_cells_active",
             title: "绘制活动",
-            description: '“绘画”中的单元格变为活动状态，它将自动移动“托盘”中的最佳颜色，',
+            description: '“画板”中的单元格变为活动状态，它将自动从“调色板”中获取等级最高的颜色块',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -923,10 +923,10 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 return 1 * (t = void 0 === t ? this.level : t)
             },
             currentLevelDescription: function () {
-                return "增加活动单元格 " + this.effect(this.getLevel())
+                return "增加画板中活动单元格数量 " + this.effect(this.getLevel())
             },
             nextLevelDescription: function () {
-                return "增加活动单元格 " + this.effect(this.getLevel() + 1)
+                return "增加画板中活动单元格数量 " + this.effect(this.getLevel() + 1)
             },
             cost: function () {
                 return 10
@@ -937,7 +937,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "paint_tier_same",
             title: "颜色层相同",
-            description: '在“画板”每个同一层给出更高的概率',
+            description: '在“画板”中，获得同一颜色层的几率变大',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -951,10 +951,10 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 return 1.5 + .1 * (t = void 0 === t ? this.level : t)
             },
             currentLevelDescription: function () {
-                return "增加相同层的概率 " + Math.floor(100 * (this.effect(this.getLevel()) - 1)) + "%"
+                return "增加相同颜色层的概率 " + Math.floor(100 * (this.effect(this.getLevel()) - 1)) + "%"
             },
             nextLevelDescription: function () {
-                return "增加相同层的概率 " + Math.floor(100 * (this.effect(this.getLevel() + 1) - 1)) + "%"
+                return "增加相同颜色层的概率 " + Math.floor(100 * (this.effect(this.getLevel() + 1) - 1)) + "%"
             },
             cost: function () {
                 return 5
@@ -964,8 +964,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             }
         }, {
             name: "paint_auto_sort",
-            title: "自动排序",
-            description: '“画板”中的单元格将被自动分类（替换，交换等），还添加了一个按钮，您可以打开或关闭自动排序',
+            title: "自动分类",
+            description: '“画板”中添加了一个按钮，您可以打开或关闭自动分类，单元格将被自动分类（替换，交换位置等）',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1012,7 +1012,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "palette_smart_dbl_click",
             title: "智能双击",
-            description: '如果可能的话，双击“调色板”中的颜色块，会替换掉“画板”里面数字最小的颜色块',
+            description: '双击“调色板”中的颜色块，会替换掉“画板”里面数字最小的颜色块',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1058,7 +1058,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "auto_seller_smart",
             title: "智能卖家",
-            description: '“智能卖家”将卖掉最差的颜色',
+            description: '“智能卖家”将卖掉值最小的颜色块',
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1102,7 +1102,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "base_color",
             title: "基本颜色",
-            description: "重置后，您将获得更高层次的颜色",
+            description: "重置后，您默认将获得更高层次的颜色",
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1116,10 +1116,10 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 return 2 * (t = void 0 === t ? this.level : t)
             },
             currentLevelDescription: function () {
-                return "你得到一个层的颜色 " + this.effect(this.getLevel())
+                return "你的初始颜色等级是 " + this.effect(this.getLevel())
             },
             nextLevelDescription: function () {
-                return "你得到一个层的颜色 " + this.effect(this.getLevel() + 1)
+                return "你的初始颜色等级是 " + this.effect(this.getLevel() + 1)
             },
             cost: function () {
                 return 1
@@ -1127,7 +1127,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "tick_color_count",
             title: "勾选颜色",
-            description: "每个计时器滴答给出更多的颜色",
+            description: "每次计时器可以给出更多的颜色",
             level: 0,
             trialLevel: 0,
             getLevel: function () {
@@ -1152,7 +1152,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "color_tier_count",
             title: "颜色层",
-            description: "颜色的效果会更大。 也就是说，如果你在油漆中有10级颜色，那么你可以把颜色降到最多11，用这个天赋你可以得到12级以上",
+            description: "颜色获取的的效果会更大。 也就是说，如果你在调色板中中有10级的颜色，你默认可以获取的颜色等级最多是11，学了这个天赋之后，你可以得到12级以上的颜色块",
             level: 0,
             trialLevel: 0,
             getLevel: function () {
