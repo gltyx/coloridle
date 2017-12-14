@@ -107,7 +107,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, this.setTextResetCount = function () {
             $('[data-stat="resetCount"]').text(e.displayNumber(i.resetCount));
             var t = "当您获得至少100个颜色层时，您才可以重置";
-            i.resetCount.greaterThan(0) && (t = "本次重置需要比你上一次重置时拥有的颜色多100种"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
+            i.resetCount.greaterThan(0) && (t = "重置时，每满100级，将额外获得10天赋点"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
                 trigger: "hover"
             })
         }, this.setTextAllGoldPaint = function () {
@@ -186,11 +186,11 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 steps: {
                     1: {
                         target: $("#talents .info"),
-                        text: "你可以重置游戏并获得金漆。 <br />在这里你可以找到关于它的所有信息。 <br />当徘徊在一些价值观上，你可以得到关于他们的暗示。"
+                        text: "你可以重置游戏并获得天赋点。 <br />在这里你可以找到关于它的所有信息。 <br />当徘徊在一些价值观上，你可以得到关于他们的暗示。"
                     },
                     2: {
                         target: $("#talents .talents"),
-                        text: "这是你的天赋树。 <br />你可以花费金漆来提升天赋。 <br />当你徘徊在每个天赋，你会收到有关它的详细信息。",
+                        text: "这是你的天赋树。 <br />你可以花费天赋点来提升天赋。 <br />当你徘徊在每个天赋，你会收到有关它的详细信息。",
                         place: "top"
                     }
                 }
@@ -489,7 +489,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 var i = $(this).closest(".grid-cell");
                 $(this).attr("data-original-title", "出售可以获得 " + e.displayNumber(t.getColorValue(t.jqueryGetTier(i))) + "$"), $(this).tooltip("show")
             }), $("#reset").click(function () {
-                !$(this).hasClass(".disabled") && t.canReset() && confirm("你确定要重置？ 这将游戏中的所有的值返回到原来的，除了天赋和金漆，你也将获得 " + t.statVars.getGoldPaintAfter() + " 金漆。") && t.reset()
+                !$(this).hasClass(".disabled") && t.canReset() && confirm("你确定要重置？ 这将游戏中的所有的值返回到原来的，除了天赋和天赋点，你也将获得 " + t.statVars.getGoldPaintAfter() + " 天赋点。") && t.reset()
             }), $("#color-view").change(function () {
                 t.options.colorView = $(this).val(), $.each(t.jqueryWorkCells("color"), function () {
                     t.setColorCss($(this), t.jqueryGetTier($(this))), t.setTextColorCell($(this))
@@ -1185,7 +1185,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             }), $("#reset-talents").click(function () {
                 var t = e.getAllCost();
                 t > 0 && confirmModal({
-                    content: "你会得到退回的 " + t + " 金漆。 <br /> 你确定？",
+                    content: "你会得到退回的 " + t + " 天赋点。 <br /> 你确定？",
                     confirmCallback: function () {
                         e.reset()
                     }
@@ -1236,7 +1236,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
             var i = $('#talents button[data-name="' + t.name + '"]');
             i.html(t.title), e.canUpgrade(t) ? i.removeClass("disabled") : i.addClass("disabled"), t.getLevel() > 0 && i.html(i.html() + " (" + t.getLevel() + ")");
             var s = "<div><b>描述:</b> " + t.description + "</div>";
-            t.hasOwnProperty("currentLevelDescription") && (s += "<div><b>当前等级:</b> " + t.currentLevelDescription() + "</div>"), t.hasOwnProperty("nextLevelDescription") && (s += "<div><b>下一级:</b> " + t.nextLevelDescription() + "</div>"), t.hasOwnProperty("available") && (s += "<div><b>前置条件:</b> " + e.getTextAvailable(t)), t.hasOwnProperty("maxLevel") && (s += "<div><b>最高等级:</b> " + t.maxLevel), s += "<div><b>花费:</b> " + t.cost() + " 金漆</div>", i.tooltip("dispose"), i.attr("data-original-title", s), i.tooltip({
+            t.hasOwnProperty("currentLevelDescription") && (s += "<div><b>当前等级:</b> " + t.currentLevelDescription() + "</div>"), t.hasOwnProperty("nextLevelDescription") && (s += "<div><b>下一级:</b> " + t.nextLevelDescription() + "</div>"), t.hasOwnProperty("available") && (s += "<div><b>前置条件:</b> " + e.getTextAvailable(t)), t.hasOwnProperty("maxLevel") && (s += "<div><b>最高等级:</b> " + t.maxLevel), s += "<div><b>花费:</b> " + t.cost() + " 天赋点</div>", i.tooltip("dispose"), i.attr("data-original-title", s), i.tooltip({
                 trigger: "hover",
                 html: !0
             })
