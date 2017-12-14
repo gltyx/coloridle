@@ -107,7 +107,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, this.setTextResetCount = function () {
             $('[data-stat="resetCount"]').text(e.displayNumber(i.resetCount));
             var t = "当您获得至少100个颜色层时，您才可以重置";
-            i.resetCount.greaterThan(0) && (t = "重置时，每满100级，将额外获得10天赋点"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
+            i.resetCount.greaterThan(0) && (t = "本次重置时的颜色等级比上次重置时的等级大100级时，才可以获得额外的天赋点"), $("#reset").tooltip("dispose"), $("#reset").attr("data-original-title", t), $("#reset").tooltip({
                 trigger: "hover"
             })
         }, this.setTextAllGoldPaint = function () {
@@ -260,8 +260,8 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, this.offlineBonus = function () {
             var t = s.time.offlineBonus();
             t.greaterThan(0) && (s.statVars.money = s.statVars.money.plus(t), confirmModal({
-                content: "You received an offline bonus " + e.displayNumber(t),
-                confirmButtonText: "Ok",
+                content: "你获得了离线奖励 " + e.displayNumber(t),
+                confirmButtonText: "确定",
                 cancelButton: !1
             }))
         }, this.jqueryColorCells = function (t, e, i) {
@@ -403,9 +403,9 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                 var i = 1;
                 if (Math.random() <= .05) {
                     i = 5, $("#timer-wrapper").addClass("crit");
-                    var a = $("<span/>").text(" 暴击!").insertBefore("#color-progress");
+                    var a = $("<span/>").text(" 暴击!").addClass("baoji").insertBefore("#color-progress");
                     setTimeout(function () {
-                        a.remove(), $("#timer-wrapper").removeClass("crit")
+                        $("span.baoji").remove(); $("#timer-wrapper").removeClass("crit")
                     }, 1500)
                 }
                 for (var r in this.probabilities) {
