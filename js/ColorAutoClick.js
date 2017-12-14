@@ -1,3 +1,4 @@
+console.log("导入自动点击脚本成功！");
 function getTime(num) {
     var oDate = new Date(); //实例一个时间对象；
     oDate.getFullYear(); //获取系统的年；
@@ -32,14 +33,14 @@ function moneys() {
     getTime("升级金钱技能")
 }
 
-////自动双击“调色板”左边第一个格子
-//var tsbcell = setInterval("tsb1();", 1000);
-////定时自动点“时间”技能
-//var time = setInterval("times();", 6000);
-////定时自动点“几率”技能
-//var chance = setInterval("chances();", 7000);
-////定时自动点“金钱”技能
-//var money = setInterval("moneys();", 8000);
+//自动双击“调色板”左边第一个格子
+var tsbcell = setInterval("tsb1();", 1000);
+//定时自动点“时间”技能
+var time = setInterval("times();", 6000);
+//定时自动点“几率”技能
+var chance = setInterval("chances();", 7000);
+//定时自动点“金钱”技能
+var money = setInterval("moneys();", 8000);
 
 
 ////停止自动点击“调色板”左边第一个格子
