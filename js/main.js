@@ -406,7 +406,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
                     var a = $("<span/>").text(" 暴击!").addClass("baoji").insertBefore("#color-progress");
                     setTimeout(function () {
                         $("span.baoji").remove(); $("#timer-wrapper").removeClass("crit")
-                    }, 1500)
+                    }, 3000)
                 }
                 for (var r in this.probabilities) {
                     var n = this.probabilities[r],
