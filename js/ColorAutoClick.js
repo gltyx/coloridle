@@ -17,36 +17,36 @@ function tsb1() {
     getTime("点击右边格子")
 }
 //自动升级“时间”
-function time() {
+function times() {
     $("#upgrade-time button").trigger("click");
     getTime("升级时间技能")
 }
 //自动双击“几率”
-function chance() {
+function chances() {
     $("#upgrade-chance button").trigger("click");
     getTime("升级几率技能")
 }
 //自动双击“金钱”
-function money() {
+function moneys() {
     $("#upgrade-money button").trigger("click");
     getTime("升级金钱技能")
 }
 
-////自动双击“调色板”左边第一个格子
-//var tsbcell = setInterval("tsb1();", 1000);
-////定时自动点“时间”技能
-//var time = setInterval("time();", 6000);
-////定时自动点“几率”技能
-//var chance = setInterval("chance();", 7000);
-////定时自动点“金钱”技能
-//var money = setInterval("money();", 8000);
+//自动双击“调色板”左边第一个格子
+var tsbcell = setInterval("tsb1();", 1000);
+//定时自动点“时间”技能
+var time = setInterval("times();", 6000);
+//定时自动点“几率”技能
+var chance = setInterval("chances();", 7000);
+//定时自动点“金钱”技能
+var money = setInterval("moneys();", 8000);
 
 
 ////停止自动点击“调色板”左边第一个格子
 //clearInterval(tsbcell);
 ////停止自动升级“时间”技能
-//clearInterval(time);
+//clearInterval(times);
 ////停止自动升级“几率”技能
-//clearInterval(chance);
+//clearInterval(chances);
 ////停止自动升级“金钱”技能
-//clearInterval(money);
+//clearInterval(moneys);
