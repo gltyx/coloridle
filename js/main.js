@@ -1152,7 +1152,7 @@ $(document).on("click", '[data-tab="true"]', function (t) {
         }, {
             name: "color_tier_count",
             title: "颜色层",
-            description: "颜色获取的的效果会更大。 也就是说，如果你在调色板中中有10级的颜色，你默认可以获取的颜色等级最多是11，学了这个天赋之后，你可以得到12级以上的颜色块",
+            description: "获取的颜色等级可以跳级。 比方说你的调色板中最高级的颜色10级，那你默认可以获取的最高颜色等级是11级，学了1级“天赋层”天赋之后，你下次可以得到最高为12级的颜色块，以此类推。",
             level: 0,
             trialLevel: 0,
             getLevel: function () {
