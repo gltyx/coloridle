@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://game289064.konggames.com/gamez/0028/9064/live/index.html -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="" style="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>颜色放置 - Hex-Color-Idle</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body class="" cz-shortcut-listen="true">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container">
+        <ul class="nav nav-tabs" id="main-menu">
+            <li class="nav-item">
+                <a class="nav-link active" data-tab="true" href="#colors"><i class="fa fa-paint-brush" aria-hidden="true"></i> 颜色</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-tab="true" href="#gallery"><i class="fa fa-book" aria-hidden="true"></i> 画廊 <span id="new-tier" class="badge badge-primary"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-tab="true" href="#talents"><i class="fa fa-sitemap" aria-hidden="true"></i> 天赋树 <span id="gold_paint" class="badge badge-primary">0/0</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-tab="true" href="#statistics"><i class="fa fa-bar-chart" aria-hidden="true"></i> 统计</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-tab="true" href="#options"><i class="fa fa-cog" aria-hidden="true"></i> 选项</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="main-tabs">
+            <div class="tab-pane active" id="colors">
+                <div class="row">
+                    <div class="col-md-6" id="timer-wrapper">
+                        时间 - <span id="tick-time">10000</span>
+                        <div class="progress" id="color-progress">
+                            <div class="progress-bar" style="width: 26.5%;" role="progressbar"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        钱数: <span id="money">0$</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" id="work-grid-wrapper">
+                        <p>画板:
+                            <button class="btn btn-info hidden" id="sort-work-grid">分类</button>
+                            <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="自动分类关闭" data-enabled-text="自动分类开启" id="auto-sort-work-grid">
+                                自动分类
+                            </button>
+                        </p>
+                        <div id="work-grid" class="grid">
+                            <div class="grid-cell ui-draggable ui-draggable-handle ui-droppable" style="width: 20%; padding-top: 20%;">
+                                <div class="text"></div>
+                                <div class="amount"></div>
+                                <div class="sell"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="grid-cell ui-draggable ui-draggable-handle ui-droppable" style="width: 20%; padding-top: 20%;">
+                                <div class="text"></div>
+                                <div class="amount"></div>
+                                <div class="sell"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="grid-cell ui-draggable ui-draggable-handle ui-droppable" style="width: 20%; padding-top: 20%;">
+                                <div class="text"></div>
+                                <div class="amount"></div>
+                                <div class="sell"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="grid-cell ui-draggable ui-draggable-handle ui-droppable" style="width: 20%; padding-top: 20%;">
+                                <div class="text"></div>
+                                <div class="amount"></div>
+                                <div class="sell"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                            </div>
+                            <div class="grid-cell ui-draggable ui-draggable-handle ui-droppable" style="width: 20%; padding-top: 20%;">
+                                <div class="text"></div>
+                                <div class="amount"></div>
+                                <div class="sell"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="desk-grid-header">
+                            <div>调色板:</div>
+                            <div id="desk-options">
+                                <button class="btn btn-danger" id="sell-all">全部出售</button>
+                                <button class="btn btn-info hidden" id="sort-desk-grid">分类</button>
+                                <button class="btn btn-info hidden" data-enabled="true" data-disabled-text="自动分类关闭" data-enabled-text="自动分类开启" id="auto-sort-desk-grid">
+                                    自动分类
+                                </button>
+                            </div>
+                        </div>
+                        <div id="desk-grid" class="grid">
+                            
+                        </div>
+                        <p class="clearfix">
+                            升级
+                            <span class="btn-group" id="upgrade-multi-buttons">
+                                    <button class="btn btn-info active" data-multi="1">1x</button>
+                                    <button class="btn btn-info" data-multi="10">10x</button>
+                                    <button class="btn btn-info" data-multi="100">100x</button>
+                                    <button class="btn btn-info" data-multi="0">最大</button>
+                                </span>
+                        </p>
+                        <div id="upgrades" class="row">
+                           
+                        </div>
+                        <div id="probabilities-header">
+                            <div>颜色出现几率</div>
+                            <div class="btn-group" id="probabilities-sort" data-sort="asc">
+                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    默认 <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+                                </button>
+                                <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                    <a data-sort="asc" class="dropdown-item" href="javascript:void(0)">从小到大 <i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
+                                    <a data-sort="desc" class="dropdown-item" href="javascript:void(0)">从大到小 <i class="fa fa-long-arrow-down" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="probabilities">
+                            <div class="probability active" style="background-color: rgb(0, 0, 0); color: rgb(255, 255, 255);">层 0: 100%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="gallery">
+                <div class="description">
+                    <div>
+                        获得 <span id="highest-tier">0</span>/<span id="max-tier">16777</span> 颜色
+                    </div>
+                    <div>
+                        你可以找到每种颜色的详细信息，点击它。 所有的信息显示没有多余的。
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" id="gallery-show-tier" class="form-check-input"> 显示层
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <ul class="nav nav-pills flex-column" id="gallery-menu"></ul>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="tab-content"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="talents">
+                <div class="info">
+                    <div>
+                        所有天赋点: <span data-toggle="tooltip" title="" data-stat="allGoldPaint" data-original-title="每种颜色的获得几率将增加5％">0</span> (
+                        <span data-stat="allGoldPaintExtra">0</span>% 几率)
+                    </div>
+                    <div>
+                        当前天赋点: <span data-stat="goldPaint">0</span>
+                    </div>
+                    <div>
+                        重置后的天赋点: <span data-toggle="tooltip" title="" data-stat="goldPaintAfterReset" data-original-title="每获得10个新颜色层，您将获得1个天赋点。 此外，每满100级，您将获得额外10天赋点，当200级的时候，获得20个天赋点，300级的时候，获得30个天赋点，以此类推。">0</span>
+                    </div>
+                    <div>
+                        此重置中最高的新颜色层次: <span data-stat="highestTierThisReset">0</span>
+                    </div>
+                    <div>
+                        重置次数: <span data-stat="resetCount">0</span>
+                    </div>
+                    <div>
+                        第一次重置后，您可以免费获得天赋“绘制活动”。 放置更多的颜色。
+                    </div>
+                    <div>
+                        <button id="reset" data-toggle="tooltip" class="btn btn-danger disabled" data-original-title="当您获得至少100个颜色层时，您才可以重置">重置游戏得到 <span data-stat="goldPaintAfterReset">0</span> 天赋点</button>
+                    </div>
+                </div>
+                <div class="talents-buttons">
+                    <button id="reset-talents" class="btn btn-warning" title="" data-toggle="tooltip" data-original-title="你会获得100％的天赋点">重置天赋</button>
+                    <div class="cancel-confirm-buttons">
+                        <button type="button" class="btn btn-danger" id="cancel-talents">取消</button>
+                        <button type="button" class="btn btn-success" id="confirm-talents">确认</button>
+                    </div>
+                </div>
+                <div class="row talents">
+                    <div class="col-md-4">
+                        <button class="btn btn-primary disabled" data-name="paint_cells_count" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Increases the number of cells in &quot;Paint&quot;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the number of cells by 0&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the number of cells by 1&lt;/div&gt;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 2 gold paint&lt;/div&gt;">绘画格子</button>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="line-wrapper vertical">
+                                    <div class="line with-arrow"></div>
+                                </div>
+                                <button class="btn btn-primary disabled" data-name="paint_cells_stack" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Colors in &quot;Paint&quot; of the same tier can stack in one cell&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the count colors in one cell by 0&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the count colors in one cell by 1&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Paint cells&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 5 gold paint&lt;/div&gt;">油漆堆栈</button>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="line-wrapper vertical">
+                                            <div class="line with-arrow"></div>
+                                        </div>
+                                        <button class="btn btn-primary disabled" data-name="paint_cells_active" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; The cell in the &quot;Paint&quot; becomes active, it automatically moves the best color from your &quot;Pallet&quot;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the active cells by 0&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the active cells by 1&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Paint stack&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">绘制活动</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="line-wrapper vertical">
+                                    <div class="line with-arrow"></div>
+                                </div>
+                                <button class="btn btn-primary disabled" data-name="paint_tier_same" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Each same tier in the &quot;Paint&quot; gives a higher probability&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases same tier probability by 50%&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases same tier probability by 60%&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Paint cells&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 5 gold paint&lt;/div&gt;">颜色层相同</button>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="line-wrapper vertical">
+                                            <div class="line with-arrow"></div>
+                                        </div>
+                                        <button class="btn btn-primary disabled" data-name="paint_auto_sort" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; The cells in the &quot;Paint&quot; will be automatically sorted (when replaced, swapped, etc.), also adds a button with which you can turn on or off the auto sorting&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; At 5 level of &quot;Paint cells&quot;&lt;div&gt;&lt;b&gt;Max level:&lt;/b&gt; 1&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 15 gold paint&lt;/div&gt;">自动排序</button>
+                                        <div class="custom-1 line"></div>
+                                        <div class="custom-3 line with-arrow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary disabled" data-name="palette_cells_count" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Increases the number of cells in &quot;Palette&quot;&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the number of cells by 0&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the number of cells by 1&lt;/div&gt;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 2 gold paint&lt;/div&gt;">调色板单元格</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="line-wrapper vertical">
+                                    <div class="line with-arrow"></div>
+                                </div>
+                                <button class="btn btn-primary disabled" data-name="palette_smart_dbl_click" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Double click on the color in the &quot;Palette&quot; swap it with the worst color in the paint, if possible&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; At 5 level of &quot;Palette cells&quot;, At 1 level of &quot;Auto sort&quot;&lt;div&gt;&lt;b&gt;Max level:&lt;/b&gt; 1&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">智能双击</button>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="line-wrapper vertical">
+                                            <div class="line with-arrow"></div>
+                                        </div>
+                                        <button class="btn btn-primary disabled" data-name="auto_seller_smart" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; The &quot;Auto seller&quot; will sell the worst color in the pallet&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; At 5 level of &quot;Palette cells&quot;&lt;div&gt;&lt;b&gt;Max level:&lt;/b&gt; 1&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">智能卖家</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="line-wrapper vertical">
+                                            <div class="line with-arrow"></div>
+                                        </div>
+                                        <button class="btn btn-primary disabled" data-name="palette_auto_sort" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; The cells in the &quot;Palette&quot; will be automatically sorted (when replaced, swapped, ticked etc.), also adds a button with which you can turn on or off the auto sorting&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; At 1 level of &quot;Smart seller&quot;&lt;div&gt;&lt;b&gt;Max level:&lt;/b&gt; 1&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">自动排序</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary disabled" data-name="probability" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Increases the chance of obtaining color&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the chance by 100%&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the chance by 110%&lt;/div&gt;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 2 gold paint&lt;/div&gt;">几率</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="line-wrapper vertical">
+                                    <div class="line with-arrow"></div>
+                                </div>
+                                <button class="btn btn-primary disabled" data-name="base_color" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; After the reset, you are given the color of a higher tier&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; You get the color of a tier 0&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; You get the color of a tier 2&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Chance&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 1 gold paint&lt;/div&gt;">基本颜色</button>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="line-wrapper vertical">
+                                            <div class="line with-arrow"></div>
+                                        </div>
+                                        <button class="btn btn-primary disabled" data-name="tick_color_count" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; Each timer tick gives more colors&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; You get 0 color more &lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; You get 1 color more &lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Base color&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">勾选颜色</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="line-wrapper vertical">
+                                    <div class="line with-arrow"></div>
+                                </div>
+                                <button class="btn btn-primary disabled" data-name="color_tier_count" data-original-title="&lt;div&gt;&lt;b&gt;Description:&lt;/b&gt; The effect of color will be greater. That is, if you have a tier 10 color in the paint, then you could drop the color to a maximum of 11, with this talent you can get a tier 12 and more&lt;/div&gt;&lt;div&gt;&lt;b&gt;Current level:&lt;/b&gt; Increases the effect by 0 tier&lt;/div&gt;&lt;div&gt;&lt;b&gt;Next level:&lt;/b&gt; Increases the effect by 1 tier&lt;/div&gt;&lt;div&gt;&lt;b&gt;Available:&lt;/b&gt; Every 4 level of &quot;Chance&quot;&lt;div&gt;&lt;b&gt;Cost:&lt;/b&gt; 10 gold paint&lt;/div&gt;">颜色层</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="statistics">
+                <div>
+                    重置次数: <span data-stat="resetCount">0</span>
+                </div>
+                <div>
+                    天赋点获得: <span data-stat="allGoldPaint">0</span>
+                </div>
+                <div>
+                    最高的色彩层次: <span data-stat="highestTier">0</span>
+                </div>
+                <div>
+                    此重置中最高的新颜色层次: <span data-stat="highestTierThisReset">0</span>
+                </div>
+                <div>
+                    获得的钱: <span data-stat="allMoney">291000</span>
+                </div>
+                <div>
+                    本次游戏时间: <span data-time="thisSession">1 分 52 秒</span>
+                </div>
+                <div>
+                    重置后的时间: <span data-time="sinceReset">49 分 12 秒</span>
+                </div>
+                <div>
+                    全部游戏时间: <span data-time="all">49 分 21 秒</span>
+                </div>
+                <div>
+                    在线时间: <span data-time="online">49 分 12 秒</span>
+                </div>
+                <div>
+                    离线时间: <span data-time="offline">9 秒</span>
+                </div>
+            </div>
+            <div class="tab-pane" id="options">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="save-options">
+                            <div>
+                                <button class="btn btn-primary" id="save-button">保存</button>
+                                每10秒自动保存一次
+                                <button class="btn btn-danger" id="delete-save-button">删除全部进度</button>
+                            </div>
+                            <div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                            <button class="btn btn-warning" id="import-button">导入存档</button>
+                                        </span>
+                                    <input type="text" id="import-text" class="form-control">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                            <button class="btn btn-info" id="export-button">导出存档</button>
+                                        </span>
+                                    <input type="text" id="export-text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>主题</label>
+                            <select class="form-control" id="change-theme">
+                                <option value="">默认</option>
+                                <option value="dark">黑色</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>颜色如何变化</label>
+                            <select class="form-control" id="color-view">
+                                <option value="1">默认</option>
+                                <option value="3">顺序</option>
+                                <option value="2">随机</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>-->
+<script src="//g8hh.github.io/static/js/jquery.min.js"></script>
+    <script src="https://likexia.gitee.io/tools/lib/js/jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="js/vendor/jquery-1.12.0.min.js"><\/script>')
+
+    </script>
+    <script src="js/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <!--        <script src="js/kongregate_api.js"></script>-->
+    <script src="js/bignumber.js"></script>
+    <script src="js/base64.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/HackTimer.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+    <!--        <script src="js/admin.js"></script>-->
+
+<!--客服 开始-->
+<link rel="stylesheet" href="//g8hh.github.io/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.github.io/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计-->
+    <div style="display: none">
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?6581389daf4dd6fe7dbb4d20fdcb52a6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    </div>
+<!--    <script src="js/ColorAutoClick.js" charset="utf-8"></script>-->
+</body>
+
+</html>
